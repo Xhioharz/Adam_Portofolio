@@ -189,6 +189,58 @@ footer{text-align:center;padding:40px 20px 20px;color:#a9cfc8;font-size:13px;bac
 @media(max-width:560px){.profile{flex-direction:column;text-align:center}.profile-intro{margin-left:auto!important;margin-right:auto!important}}
 @media(max-width:560px){.education-picker{grid-template-columns:1fr;gap:18px}.education-options{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.education-option{padding:10px;font-size:13px}.education-showcase{min-height:270px}}
 
+/* ===== MATERI (PARTISI 1 & 2) ===== */
+.tome{width:22px;height:22px;display:block}
+.mt-ic{display:inline-block;width:.9em;height:.9em;vertical-align:-.08em;margin-right:12px;color:var(--gold)}
+.mt-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:0 auto 34px}
+.mt-tab{display:flex;align-items:center;gap:8px;padding:11px 22px;border:2px solid #a69a7c;border-radius:8px;cursor:pointer;font:700 14px var(--serif);letter-spacing:.5px;color:#f1e3c0;
+  background:linear-gradient(145deg,#7a7059,#4b493d);box-shadow:inset 0 0 0 2px #2a2820,0 6px 14px rgba(0,0,0,.4);transition:transform .2s,filter .2s}
+.mt-tab .tome{width:18px;height:18px}
+.mt-tab:hover{transform:translateY(-3px);filter:brightness(1.15)}
+.mt-tab:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.mt-tab[aria-pressed="true"]{background:linear-gradient(#e7b95b,#b9792e);color:#fff;border-color:#f6dc9a;box-shadow:0 0 0 3px #7a4a1c,0 0 22px rgba(255,214,120,.7);text-shadow:0 2px 2px rgba(60,30,0,.6)}
+.dbook{position:relative;isolation:isolate;max-width:820px;margin:0 auto;border-radius:14px;perspective:1400px}
+.dbook-pages{position:relative;z-index:1;display:grid;padding:26px;border-radius:14px;background:linear-gradient(145deg,#5b2c20,#3b1b12);border:3px solid #2a130c;
+  box-shadow:inset 0 0 0 5px #b98a3e,inset 0 0 0 8px #2a130c,inset 0 0 30px rgba(0,0,0,.6),0 14px 34px rgba(0,0,0,.5);
+  opacity:0;visibility:hidden;transform:scale(1.03);transition:opacity .45s ease .25s,transform .8s ease .25s,visibility 0s .8s}
+.mt-set{grid-area:1/1;display:grid;gap:22px;align-content:start;visibility:hidden}
+.mt-set.on{visibility:visible}
+.dbook.is-open .dbook-pages{opacity:1;visibility:visible;transform:none;transition-delay:.25s,.25s,0s}
+.dbook.is-open .mt-card{transform-origin:left center;animation:mtPage .7s cubic-bezier(.2,.8,.3,1) .45s backwards}
+.dbook.is-open .mt-card+.mt-card{animation-delay:.6s}
+@keyframes mtPage{from{opacity:0;transform:rotateY(-14deg) translateY(24px)}}
+.bk-cover{position:absolute;top:0;bottom:0;z-index:3;width:50.5%;overflow:hidden;border:3px solid #2a130c;
+  background:
+  radial-gradient(circle,#f2d27a 0 3px,#6b4216 4px 5px,transparent 6px) left 14px top 14px/16px 16px no-repeat,
+  radial-gradient(circle,#f2d27a 0 3px,#6b4216 4px 5px,transparent 6px) right 14px top 14px/16px 16px no-repeat,
+  radial-gradient(circle,#f2d27a 0 3px,#6b4216 4px 5px,transparent 6px) left 14px bottom 14px/16px 16px no-repeat,
+  radial-gradient(circle,#f2d27a 0 3px,#6b4216 4px 5px,transparent 6px) right 14px bottom 14px/16px 16px no-repeat,
+  repeating-linear-gradient(45deg,rgba(0,0,0,.09) 0 3px,transparent 3px 7px),
+  linear-gradient(100deg,#4a2418,#7a3b2a 22%,#5b2c20 55%,#3b1b12);
+  box-shadow:inset 0 0 0 6px #b98a3e,inset 0 0 0 9px #3b1b12,inset 0 0 30px rgba(0,0,0,.6),0 0 18px rgba(0,0,0,.55);
+  transition:transform .9s cubic-bezier(.2,.75,.2,1),filter .7s}
+.bk-cover.left{left:0;border-radius:14px 0 0 14px;transform-origin:left center}
+.bk-cover.right{right:0;border-radius:0 14px 14px 0;transform-origin:right center}
+.dbook.is-open .bk-cover.left{transform:rotateY(-76deg);filter:brightness(.72)}
+.dbook.is-open .bk-cover.right{transform:rotateY(76deg);filter:brightness(.72)}
+.bk-emblem{position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;pointer-events:none;text-align:center;padding:20px;transition:opacity .4s}
+.dbook.is-open .bk-emblem{opacity:0}
+.bk-emblem .plate{width:112px;height:112px;border-radius:50%;display:grid;place-items:center;color:#f2c35b;background:radial-gradient(circle,#2a130c 55%,#5b2c20);
+  border:3px solid #f2c35b;box-shadow:0 0 0 5px #2a130c,0 0 26px rgba(242,195,91,.6);animation:bob 4s ease-in-out infinite}
+.bk-emblem .tome{width:62px;height:62px}
+.bk-emblem span{font:700 14px var(--serif);letter-spacing:3px;color:#f2d89a;text-shadow:0 2px 4px #000}
+.mt-head{padding-bottom:14px;margin-bottom:16px;border-bottom:3px double var(--gold2)}
+.mt-tag{display:inline-block;font:700 11px var(--sans);letter-spacing:1.5px;text-transform:uppercase;color:#fff;background:linear-gradient(#8a5a22,#6b4216);padding:3px 12px;border-radius:20px;margin-bottom:10px}
+.mt-row{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin:4px 0}
+.mt-k{min-width:78px;font-weight:700;color:var(--gold2);font-size:12px;text-transform:uppercase;letter-spacing:.8px}
+.mt-speaker{font-weight:700;font-size:16px}
+.mt-head h3{border:0;padding:0;margin:0;font-size:clamp(20px,3vw,26px)}
+.mt-body p{margin:.7em 0;line-height:1.85;text-align:justify}
+.mt-body h4{font:700 16px var(--serif);color:#6b4216;margin-top:1.2em}
+.mt-body ol{margin:.4em 0 .4em 26px;line-height:1.9}
+.mt-body li{display:list-item;padding:2px 0;border:0}
+@media(max-width:560px){.dbook-pages{padding:18px}.mt-tab{padding:10px 16px}}
+
 /* ===== CUACA: PAGI / MALAM ===== */
 #skyFx{position:absolute;inset:0;pointer-events:none;transition:filter 2s}
 .nightsky{position:absolute;inset:0;z-index:0;opacity:0;transition:opacity 2s;background:linear-gradient(#040a22,#0d1c4a 50%,#1b3566 75%,#1a3f3a)}
@@ -243,7 +295,7 @@ body.night .wx .pill{transform:translateX(100%)}
 @keyframes pop{to{transform:translate(var(--dx),var(--dy)) scale(0);opacity:0}}
 
 @media(max-width:860px){.grid{grid-template-columns:1fr}.arr.p{left:4px}.arr.n{right:4px}.windmill{width:60px}}
-@media(max-width:480px){section{padding:70px 16px}.nv a{min-width:46px;padding:5px 7px;font-size:10px}.scroll .k{min-width:96px}}
+@media(max-width:480px){section{padding:70px 16px}.nv a{min-width:34px;padding:4px 1px;font-size:9px}.nv a span{font-size:16px}.scroll .k{min-width:96px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rev{opacity:1;transform:none}}
 </style>
 </head>
@@ -299,8 +351,8 @@ body.night .wx .pill{transform:translateX(100%)}
           <li><span class="k">No. Telepon</span><a href="tel:+628154542658">+62 815-4542-6658</a></li>
           <li><span class="k">Instagram</span><a href="https://instagram.com/mramaadhann_" target="_blank" rel="noopener">@mramaadhann_</a></li>
           <li><span class="k">TikTok</span><a href="https://tiktok.com/@thun_play" target="_blank" rel="noopener">@thun_play</a></li>
-          <li><span class="k">GitHUb</span><a href="https://github.com/@Xhioharz" target="_blank" rel="noopener">@Xhioharz</a></li>
-          <li><span class="k">E-Mail</span><a href="h1101261028@student.untan.ac.id" target="_blank" rel="noopener">h1101261028@student.untan.ac.id</a></li>
+          <li><span class="k">GitHub</span><a href="https://github.com/Xhioharz" target="_blank" rel="noopener">@Xhioharz</a></li>
+          <li><span class="k">E-Mail</span><a href="mailto:h1101261028@student.untan.ac.id">h1101261028@student.untan.ac.id</a></li>
         </ul>
       </div>
       <div class="scroll rev wide">
@@ -352,6 +404,53 @@ body.night .wx .pill{transform:translateX(100%)}
           <li><span><b>JUARA UMUM 1 LTUB PASKIBRA</b> — WARRIORS LEGEND, Tingkat Provinsi (2025)</span></li>
           <li><span><b>BEST 1 DANTON LTUB PASKIBRA</b> — WARRIORS LEGEND, Tingkat Provinsi (2025)</span></li>
         </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MATERI ===== -->
+<section id="materi" class="dark">
+  <div class="wrap">
+    <div class="title rev"><h2>MATERI</h2><div class="line"></div><p>Pilih partisi untuk membuka buku materi</p></div>
+    <div class="mt-tabs" role="group" aria-label="Pilih partisi materi">
+      <button class="mt-tab" type="button" aria-pressed="false" aria-controls="materiBook" data-part="1">
+        <svg class="tome" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 3h13a3 3 0 0 1 3 3v15H7a3 3 0 0 1-3-3V3Zm3 2a1 1 0 0 0-1 1v12a3 3 0 0 1 1-.17h11V6a1 1 0 0 0-1-1H7Zm2 3h7v2H9V8Zm0 4h7v2H9v-2Z"/></svg>
+        Partisi 1
+      </button>
+      <button class="mt-tab" type="button" aria-pressed="false" aria-controls="materiBook" data-part="2">
+        <svg class="tome" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 3h13a3 3 0 0 1 3 3v15H7a3 3 0 0 1-3-3V3Zm3 2a1 1 0 0 0-1 1v12a3 3 0 0 1 1-.17h11V6a1 1 0 0 0-1-1H7Zm2 3h7v2H9V8Zm0 4h7v2H9v-2Z"/></svg>
+        Partisi 2
+      </button>
+    </div>
+    <div class="dbook" id="materiBook">
+      <div class="dbook-pages">
+        <article class="mt-set" id="materiPart1" aria-hidden="true">
+          <div class="scroll mt-card">
+            <header class="mt-head">
+              <span class="mt-tag">Partisi 1</span>
+              <div class="mt-row"><span class="mt-k">Bagian</span><span class="mt-speaker">Materi Partisi 1</span></div>
+              <h3>Isi materi Partisi 1</h3>
+            </header>
+            <div class="mt-body"><p>Tambahkan judul dan isi materi Partisi 1 pada halaman ini.</p></div>
+          </div>
+        </article>
+        <article class="mt-set" id="materiPart2" aria-hidden="true">
+          <div class="scroll mt-card">
+            <header class="mt-head">
+              <span class="mt-tag">Partisi 2</span>
+              <div class="mt-row"><span class="mt-k">Bagian</span><span class="mt-speaker">Materi Partisi 2</span></div>
+              <h3>Isi materi Partisi 2</h3>
+            </header>
+            <div class="mt-body"><p>Tambahkan judul dan isi materi Partisi 2 pada halaman ini.</p></div>
+          </div>
+        </article>
+      </div>
+      <div class="bk-cover left" aria-hidden="true"></div>
+      <div class="bk-cover right" aria-hidden="true"></div>
+      <div class="bk-emblem" aria-hidden="true">
+        <div class="plate"><svg class="tome" viewBox="0 0 24 24"><path fill="currentColor" d="M4 3h13a3 3 0 0 1 3 3v15H7a3 3 0 0 1-3-3V3Zm3 2a1 1 0 0 0-1 1v12a3 3 0 0 1 1-.17h11V6a1 1 0 0 0-1-1H7Zm2 3h7v2H9V8Zm0 4h7v2H9v-2Z"/></svg></div>
+        <span>BUKU MATERI</span>
       </div>
     </div>
   </div>
@@ -414,6 +513,7 @@ body.night .wx .pill{transform:translateX(100%)}
   <div class="nv">
     <a href="#hero" class="act"><span>🏰</span>Home</a>
     <a href="#about"><span>📜</span>Biodata</a>
+    <a href="#materi"><span>📚</span>Materi</a>
     <a href="#gallery"><span>🖼️</span>Galeri</a>
     <a href="#music"><span>🎶</span>Musik</a>
   </div>
@@ -509,6 +609,28 @@ educationOptions.forEach(option=>option.addEventListener('click',()=>{
  };
  if(waitForClose)educationTimer=setTimeout(showEducation,900);
  else showEducation();
+}));
+
+/* ===== materi: buka buku dan pilih partisi ===== */
+const materialBook=$('materiBook'),materialTabs=[...document.querySelectorAll('.mt-tab')];
+const materialSets=[...document.querySelectorAll('.mt-set')];
+materialTabs.forEach(tab=>tab.addEventListener('click',()=>{
+ const isOpen=materialBook.classList.contains('is-open');
+ const isSelected=tab.getAttribute('aria-pressed')==='true';
+ materialTabs.forEach(item=>item.setAttribute('aria-pressed','false'));
+ if(isOpen&&isSelected){
+  materialBook.classList.remove('is-open');
+  materialSets.forEach(set=>{set.classList.remove('on');set.setAttribute('aria-hidden','true')});
+  return;
+ }
+ const selectedSet=$('materiPart'+tab.dataset.part);
+ materialTabs.forEach(item=>item.setAttribute('aria-pressed',String(item===tab)));
+ materialSets.forEach(set=>{
+  const selected=set===selectedSet;
+  set.classList.toggle('on',selected);
+  set.setAttribute('aria-hidden',String(!selected));
+ });
+ materialBook.classList.add('is-open');
 }));
 
 /* ===== musik: satu lagu, hanya putar/jeda ===== */
